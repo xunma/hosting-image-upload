@@ -1,6 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @article %>
+<% if @article.cover_image.attached? %>
+  <%= cl_image_tag @article.cover_image.key, height: 300, width: 400, crop: :fill %>
+<% else %>
+  <%= cl_image_tag "t9v5cvw1hvykxtwysqtz", height: 300, width: 400, crop: :fill %>
+<% end %>
 
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
